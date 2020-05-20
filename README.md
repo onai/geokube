@@ -7,7 +7,7 @@ This tool allows one to manage arbitrary distributed applications through Kubern
 3. [Managing GKE clusters](#Managing-GKE-clusters)
 4. [Distributed Applications](#Distributed-Applications)
 5. [Logging](#Logging)
-6. [Network Latency](network-latency/README.md)
+6. [Network Latency](#network-latency)
 
 # Background
 We constructed a tool that allows us to run any application across a large real-world network (automation provided for Google Cloud), with given geographic distribution and configuration, and then arbitrarily “break” it by taking nodes offline. The tool allows any combination of Docker images to be distributed to data centers as specified. We can then pull logs to view metrics like network traffic, etc.. We tested this with various commands.
@@ -101,3 +101,5 @@ Node level system logs can be written to stdout by mounting the `/var/log` direc
 
 Nodes can also run cAdvisor containers https://github.com/google/cadvisor to collect CPU, memory, filesystem and network usage statistics.
 
+# Network Latency
+Besides the examples mentioned above, see this example for measuring latencies: [Another Example](network-latency/)
