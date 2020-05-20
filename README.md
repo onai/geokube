@@ -21,7 +21,7 @@ We constructed a tool that allows us to run any application across a large real-
 
 This repository hosts scripts to manage GKE clusters in your project on Google Cloud. Each app is deployed with Go API for GKE.
 
-1. `run-this.sh` - Script to create clusters, and deploy applications on the clusters.
+## Creating and deploying applications to clusters
 
 Usage:
 `./run-this.sh <<M> <N_node-1_deploys> <N_node-2_deploys>...<N_node-M_deploys> <zone>>..`
@@ -41,8 +41,7 @@ Example:
 
 This will create a cluster of size 3 with 2 stellar nodes and 1 qBittorrent nodes in us-west1-a, and a cluster of size 2 with 2 stellar nodes in us-east4-a
 
-
-2. `rescale-clusters.sh` - Script to rescale applications and clusters to a smaller size. This script simulates the “breaking” 
+## Rescaling applications and clusters to a smaller size. This script simulates the “breaking” 
 
 Usage:
 `./rescale-clusters.sh <<node_name> <new_size> <zone>>..`
@@ -60,7 +59,7 @@ Example: This will resize a cluster of stellar nodes in us-east4-a to a new size
 ```
 
 
-3. `delete-clusters.sh` - Script to delete clusters in given zones.
+## Delete clusters in given zones.
 
 
 Usage:
