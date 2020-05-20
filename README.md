@@ -1,28 +1,79 @@
-# Managing Google Kubernetes Engine (GKE) clusters
+This tool allows one to manage arbitrary distributed applications through Kubernetes on the cloud and perform chaos testing. The repository also includes, in the folder 'network-latency', an instance that allows measurement of network latencies between GKE locations and IP addresses around the world.
 
-This repo hosts scripts to manage GKE clusters in a project called gke on Onai's Google cloud.
+# Table Of Contents
 
-We have two kinds of distributed applications: Stellar-core and qBittorrent right now. But, this will code will support any number of applications. Each app is deployed with Go API for GKE.
+1. [Background](#Background)
+2. [Requirements](#Requirements)
+3. [Managing GKE clusters](#Managing-GKE-clusters)
+4. [Distributed Applications](#Distributed-Applications)
+5. [Logging](#Logging)
+6. [Network Latency](network-Latency/README.md)
+
+# Background
+We constructed a tool that allows us to run any application across a large real-world network (automation provided for Google Cloud), with given geographic distribution and configuration, and then arbitrarily “break” it by taking nodes offline. The tool allows any combination of Docker images to be distributed to data centers as specified. We can then pull logs to view metrics like network traffic, etc.. We tested this with various commands.
+
+# Requirements
+
+1. Go: https://golang.org/dl/
+2. To use Google Cloud, Gcloud configured to your account: Follow instructions from https://cloud.google.com/kubernetes-engine/docs/quickstart
+
+# Managing GKE clusters
+
+This repository hosts scripts to manage GKE clusters in your project on Google Cloud.
+
+Each app is deployed with Go API for GKE.
 
 `run-this.sh` - Script to create clusters, and deploy applications on the clusters.
 
-`rescale-clusters.sh` - Script to rescale applications and clusters to a smaller size.
+Usage:
+`./run-this.sh <<M> <N_node-1_deploys> <N_node-2_deploys>...<N_node-M_deploys> <zone>>..`
+M - Number of apps in each zone
+N - cluster size
+N_node-i_deploys - name of .json/.yaml deployment file
+
+
+
+Example:
+
+```
+./run-this.sh 2 2 stellar_deployment.json 1 torrent_deployment.json us-west1-a 1 2 stellar_deployment.json us-east4-a
+```
+
+This will create a cluster of size 3 with 2 stellar nodes and 1 qBittorrent nodes
+in us-west1-a, and a cluster of size 2 with 2 stellar nodes in us-east4-a
+
+
+`rescale-clusters.sh` - Script to rescale applications and clusters to a smaller size. This script simulates the “breaking” 
+
+Usage:
+`./rescale-clusters.sh <<node_name> <new_size> <zone>>..`
+node_name - Node name as given
+new_size - New size of the cluster
+zone - In what zone to rescale
+
+
+Example: This will resize a cluster of stellar nodes in us-east4-a to a new size of one node in the cluster.
+```
+./rescale-clusters.sh stellar-us-east4-a 1 us-east4-a
+```
+
 
 `delete-clusters.sh` - Script to delete clusters in given zones.
 
 
-Each of these scripts have documentation on usage with examples.
+Usage:
+`./delete-clusters <zone-region>...`
+zone - In what zone to delete
 
+Example: This will delete cluster onai-distr-apps in both us-west1-a and us-east4-a
+```
+./delete-clusters us-west1-a us-east4-a
 
-# Requirements
-
-1. Go
-2. gcloud configured to Onai's account: https://cloud.google.com/kubernetes-engine/docs/quickstart
-
+```
 
 # Distributed applications
 
-To run a distributed application in our gke cluster, write a json file for deploying the application using this guide: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+To run a distributed application in cluster, write a Kubernetes json file for deploying the application using this guide: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
 
 # Services
 
@@ -48,7 +99,3 @@ Node level system logs can be written to stdout by mounting the `/var/log` direc
 
 Nodes can also run cAdvisor containers https://github.com/google/cadvisor to collect CPU, memory, filesystem and network usage statistics.
 
-
-## Gcloud logging
-
-Stackdriver provides logging API for log monitoring on Google Cloud https://cloud.google.com/logging/. However, it's not free.
