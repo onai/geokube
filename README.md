@@ -7,7 +7,7 @@ This tool allows one to manage arbitrary distributed applications through Kubern
 3. [Managing GKE clusters](#Managing-GKE-clusters)
 4. [Distributed Applications](#Distributed-Applications)
 5. [Logging](#Logging)
-6. [Network Latency](network-Latency/README.md)
+6. [Network Latency](network-latency/README.md)
 
 # Background
 We constructed a tool that allows us to run any application across a large real-world network (automation provided for Google Cloud), with given geographic distribution and configuration, and then arbitrarily “break” it by taking nodes offline. The tool allows any combination of Docker images to be distributed to data centers as specified. We can then pull logs to view metrics like network traffic, etc.. We tested this with various commands.
