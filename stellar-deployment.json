@@ -1,0 +1,41 @@
+{
+   "apiVersion": "extensions/v1beta1",
+   "kind": "Deployment",
+   "metadata": {
+      "name": "stellar"
+   },
+   "spec": {
+      "replicas": 0,
+      "selector": {
+         "matchLabels": {
+            "app": "stellar"
+         }
+      },
+      "template": {
+         "metadata": {
+            "labels": {
+               "app": "stellar"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name": "stellar",
+                  "image": "stellar/quickstart",
+                  "ports": [
+                     {
+                        "containerPort": 8000
+                     }
+                  ],
+                  "env": [
+                     {
+                        "name": "PORT",
+                        "value": "8000"
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}

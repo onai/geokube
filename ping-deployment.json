@@ -1,0 +1,43 @@
+{
+   "apiVersion": "extensions/v1beta1",
+   "kind": "Deployment",
+   "metadata": {
+      "name": "docker-ping"
+   },
+   "spec": {
+      "replicas": 1,
+      "selector": {
+         "matchLabels": {
+            "app": "docker-ping"
+         }
+      },
+      "template": {
+         "metadata": {
+            "labels": {
+               "app": "docker-ping"
+            }
+         },
+         "spec": {
+            "containers": [
+               {
+                  "name": "docker-ping",
+                  "image": "ubuntu:16.04",
+                  "ports": [
+                     {
+                        "containerPort": 8080
+                     }
+                  ],
+                  "env": [
+                     {
+                        "name": "PORT",
+                        "value": "8080"
+                     }
+                  ],
+                  "command": ["/bin/bash", "-c"],
+                  "args": ["apt update > /dev/null 2>&1 && apt install -y iputils-ping > /dev/null 2>&1 && for i in 51.148.48.76 200.58.110.176 13.227.74.100 164.151.129.20 103.28.251.187 163.53.78.128 ; do ping -qc 10 $i ; done"]
+               }
+            ]
+         }
+      }
+   }
+}
