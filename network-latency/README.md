@@ -38,7 +38,7 @@ Fig. 3: Latency from US server to all locations at all times
 
 ## How To Run
 
-Run `./launch-all.sh`
-Run `./extract_latency.sh`
+1. Run `./launch-all.sh`
+2. Run `./extract_latency.sh`
 
 This will print all latencies on your shell
