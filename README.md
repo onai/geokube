@@ -1,4 +1,4 @@
-This tool allows one to manage arbitrary distributed applications through Kubernetes on the cloud and perform chaos testing. The repository also includes, in the folder 'network-latency', an instance that allows measurement of network latencies between GKE locations and IP addresses around the world.
+This tool allows one to manage arbitrary distributed applications through Kubernetes on the cloud and perform chaos testing. The repository also includes an instance that allows measurement of network latencies between GKE locations and IP addresses around the world.
 
 # Table Of Contents
 
