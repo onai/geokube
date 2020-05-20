@@ -40,8 +40,8 @@ These analyses not only provide insight on the diurnal rhythms of network timing
 
 
 ## How To Run
-
-1. Run `./launch-all.sh`
-2. Run `./extract_latency.sh`
+1. Go to the main folder `cd ..`
+2. Run `./launch-all.sh`
+3. Run `./extract_latency.sh`
 
 This will print all latencies on your shell
