@@ -16,7 +16,7 @@ We recorded latencies to each of the IP addresses in the UK (Europe), US (North 
 
 From Fig.1 we can see that the latencies do not change significantly for each GKE location throughout the day. The US has the lowest latencies overall at all times and Indian servers have the most latency overall.
 
-
+![All latencies](images/image4.png)
 Fig. 1: All latencies
 
 
@@ -24,16 +24,17 @@ Fig. 1: All latencies
 Fig. 2a shows that there are latency peaks at 9AM and 9PM PST from US servers to US IP addresses, perhaps indicative of the start of the workday and evening / night entertainment streaming. Latencies remain the same throughout the day for US servers to Indian IP (Fig. 2b). At 9PM PST, which is 9:30 PM IST, we see a peak latency from the Indian server to Indian IP (Fig. 2c).
 
 
-
+![Various latencies](images/image3.png)
 Fig. 2: Latencies at all times from a) US server to US IP b) US server to Indian IP c) Indian server to Indian IP
 
 
 Fig. 3 illustrates the latencies from the US server to all IP addresses at all times. We see that there is not much variance in latencies throughout the day.
 
+![US latencies](images/image1.png)
 Fig. 3: Latency from US server to all locations at all times
 
 
-	These analyses not only provide insight on the diurnal rhythms of network timings across the worldwide internet, and also demonstrate how easily we can measure them with the tool for deploying and executing commands across geographic zones.
+These analyses not only provide insight on the diurnal rhythms of network timings across the worldwide internet, and also demonstrate how easily we can measure them with the tool for deploying and executing commands across geographic zones.
 
 
 ## How To Run
