@@ -1,4 +1,11 @@
-# Network Latency
+# How To Run
+1. Go to the main folder `cd ..`
+2. Run `./launch-all.sh`
+3. Run `./extract_latency.sh`
+
+This will print all latencies on your shell
+
+# Context + Results
 
 As a non-chaotic example, here is how we could assess network latencies between different continents at different times of day in order to determine if there is a time component, as has increasingly been anecdotally reported with increased bandwidth usage during the present lockdowns. Essentially this allows us to assign edge weights to a graph of network connectivity, where the weight corresponds to latency.
 
@@ -38,10 +45,3 @@ Fig. 3 illustrates the latencies from the US server to all IP addresses at all t
 
 These analyses not only provide insight on the diurnal rhythms of network timings across the worldwide internet, and also demonstrate how easily we can measure them with the tool for deploying and executing commands across geographic zones.
 
-
-## How To Run
-1. Go to the main folder `cd ..`
-2. Run `./launch-all.sh`
-3. Run `./extract_latency.sh`
-
-This will print all latencies on your shell
