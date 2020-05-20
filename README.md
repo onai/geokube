@@ -19,18 +19,18 @@ We constructed a tool that allows us to run any application across a large real-
 
 # Managing GKE clusters
 
-This repository hosts scripts to manage GKE clusters in your project on Google Cloud.
+This repository hosts scripts to manage GKE clusters in your project on Google Cloud. Each app is deployed with Go API for GKE.
 
-Each app is deployed with Go API for GKE.
-
-`run-this.sh` - Script to create clusters, and deploy applications on the clusters.
+1. `run-this.sh` - Script to create clusters, and deploy applications on the clusters.
 
 Usage:
 `./run-this.sh <<M> <N_node-1_deploys> <N_node-2_deploys>...<N_node-M_deploys> <zone>>..`
-M - Number of apps in each zone
-N - cluster size
-N_node-i_deploys - name of .json/.yaml deployment file
 
+M - Number of apps in each zone
+
+N - cluster size
+
+N_node-i_deploys - name of .json/.yaml deployment file
 
 
 Example:
@@ -39,16 +39,18 @@ Example:
 ./run-this.sh 2 2 stellar_deployment.json 1 torrent_deployment.json us-west1-a 1 2 stellar_deployment.json us-east4-a
 ```
 
-This will create a cluster of size 3 with 2 stellar nodes and 1 qBittorrent nodes
-in us-west1-a, and a cluster of size 2 with 2 stellar nodes in us-east4-a
+This will create a cluster of size 3 with 2 stellar nodes and 1 qBittorrent nodes in us-west1-a, and a cluster of size 2 with 2 stellar nodes in us-east4-a
 
 
-`rescale-clusters.sh` - Script to rescale applications and clusters to a smaller size. This script simulates the “breaking” 
+2. `rescale-clusters.sh` - Script to rescale applications and clusters to a smaller size. This script simulates the “breaking” 
 
 Usage:
 `./rescale-clusters.sh <<node_name> <new_size> <zone>>..`
+
 node_name - Node name as given
+
 new_size - New size of the cluster
+
 zone - In what zone to rescale
 
 
@@ -58,12 +60,13 @@ Example: This will resize a cluster of stellar nodes in us-east4-a to a new size
 ```
 
 
-`delete-clusters.sh` - Script to delete clusters in given zones.
+3. `delete-clusters.sh` - Script to delete clusters in given zones.
 
 
 Usage:
 `./delete-clusters <zone-region>...`
-zone - In what zone to delete
+
+zone - In what zone to delete cluster
 
 Example: This will delete cluster onai-distr-apps in both us-west1-a and us-east4-a
 ```
