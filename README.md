@@ -63,13 +63,13 @@ Example: This will resize a cluster of stellar nodes in us-east4-a to a new size
 
 
 Usage:
-`./delete-clusters <zone-region>...`
+`./delete-clusters.sh <zone-region>...`
 
 zone - In what zone to delete cluster
 
 Example: This will delete cluster onai-distr-apps in both us-west1-a and us-east4-a
 ```
-./delete-clusters us-west1-a us-east4-a
+./delete-clusters.sh us-west1-a us-east4-a
 
 ```
 
