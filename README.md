@@ -36,7 +36,7 @@ N_node-i_deploys - name of .json/.yaml deployment file
 Example:
 
 ```
-./run-this.sh 2 2 stellar_deployment.json 1 torrent_deployment.json us-west1-a 1 2 stellar_deployment.json us-east4-a
+./run-this.sh 2 2 stellar-deployment.json 1 torrent-deployment.json us-west1-a 1 2 stellar-deployment.json us-east4-a
 ```
 
 This will create a cluster of size 3 with 2 stellar nodes and 1 qBittorrent nodes in us-west1-a, and a cluster of size 2 with 2 stellar nodes in us-east4-a
